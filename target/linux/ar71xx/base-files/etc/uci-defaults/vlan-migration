@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Copyright (C) 2010 OpenWrt.org
+#
+
+local dev="$(uci -q get network.@switch_vlan[0].device)"
+local vlan="$(uci -q get network.@switch_vlan[0].vlan)"
+

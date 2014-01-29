@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Copyright (C) 2011 OpenWrt.org
+#
+
+[ -e /etc/config/network ] && exit 0
+
+touch /etc/config/network
+
+. /lib/functions/uci-defaults.sh
+. /lib/ar71xx.sh
+
+ucidef_set_interface_loopback
+
+board=$(ar71xx_board_name)
+
+case "$board" in
+tl-wr1043nd)
+	ucidef_set_interfaces_lan_wan "eth0.1" "eth0.2"
+	ucidef_add_switch "rtl8366rb" "1" "1"
+	ucidef_add_switch_vlan "rtl8366rb" "1" "1 2 3 4 5t"
+	ucidef_add_switch_vlan "rtl8366rb" "2" "0 5t"
+	;;
+esac
+
+uci commit network
+
+exit 0
