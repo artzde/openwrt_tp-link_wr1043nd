@@ -1,0 +1,30 @@
+
+config service "myddns"
+	option enabled		"0"
+	option interface	"wan"
+
+	option service_name	"dyndns.org"
+	option domain		"mypersonaldomain.dyndns.org"
+	option username		"myusername"
+	option password		"mypassword"	
+
+	option force_interval	"72"
+	option force_unit	"hours"
+	option check_interval	"10"
+	option check_unit	"minutes"
+	option retry_interval	"60"
+	option retry_unit	"seconds"
+
+	#option ip_source	"network" 
+	#option ip_network	"wan"
+
+	#option ip_source	"interface"
+	#option ip_interface	"eth0.1"
+
+	#option ip_source	"script"
+	#option	ip_script	"path to your scrip"
+
+	option ip_source	"web"
+	option ip_url		"http://checkip.dyndns.com/"
+
+	#option update_url	"http://[USERNAME]:[PASSWORD]@members.dyndns.org/nic/update?hostname=[DOMAIN]&myip=[IP]"

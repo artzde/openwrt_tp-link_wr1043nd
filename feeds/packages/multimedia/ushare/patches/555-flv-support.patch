@@ -1,0 +1,12 @@
+--- a/src/mime.c
++++ b/src/mime.c
+@@ -64,7 +64,8 @@ const struct mime_type_t MIME_Type_List[
+   { "qt",    UPNP_VIDEO, "http-get:*:video/quicktime:"},
+   { "bin",   UPNP_VIDEO, "http-get:*:video/mpeg2:"},
+   { "iso",   UPNP_VIDEO, "http-get:*:video/mpeg2:"},
+-
++  { "flv", UPNP_VIDEO, "http-get:*:video/x-flv:"},
++  
+   /* Audio files */
+   { "3gp",  UPNP_AUDIO, "http-get:*:audio/3gpp:"},
+   { "aac",  UPNP_AUDIO, "http-get:*:audio/x-aac:"},
